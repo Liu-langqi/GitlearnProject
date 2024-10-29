@@ -72,3 +72,51 @@ index 81a5c5a..0335e19 100644
 
 测试版本回退：
 版本1
+版本2
+版本3
+
+
+```bash
+# 查看修改内容
+git log
+
+# 精简提交日志输出信息
+git log --pretty=oneline
+
+commit 就是一个“快照”
+
+# 查看输出信息
+Impossible7@DESKTOP-77STT21 MINGW64 /e/GitRepository/LearningGit (master)
+$ git log --pretty=oneline
+cf5d3083721073f9c5954588225db7777c1c2962 (HEAD -> master) 版本3
+f53565cc3753eac031b0d8200bfaa0b0c5b67ab3 版本2
+bd379362699e2bd24911f1b4299a017d78c1079d 版本1
+1ef0cdffaeb17886d4b73913a31a0a062e476b5d 测试修改文件
+88bbb95213e4a4fe8dc72820c2c45a6d53ee6df7 Learning.md
+abece97ab22133e2ac6ef8a4a6d82f3e42a7df37 change readme.md
+
+# 前面为16进制，commit id（版本号）
+
+# 回退版本
+git reset --hard HEAD^
+get reset --soft
+get reset --mixed
+
+--hard 会回退到上个版本的已提交状态
+--soft 会回退到上个版本的未提交状态
+--mixed 会回退到上个版本已添加但未提交的状态
+
+HEAD^ 上版本
+HEAD^^ 上上版本
+HEAD~100 上100版本
+
+# 穿越回去
+git reset --hard HEAD^
+
+# 穿越回来
+git resit --hard cf5d3
+
+# 使用过的命令
+git reflog
+```
+
