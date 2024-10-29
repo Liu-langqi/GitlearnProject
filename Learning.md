@@ -39,5 +39,36 @@ git diff <file>
 git status
 ```
 
-测试修改文件
 
+3. 修改文件后，git再查看修改了哪里
+
+```bash
+Impossible7@DESKTOP-77STT21 MINGW64 /e/GitRepository/LearningGit (master)
+$ git status
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   Learning.md
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+Impossible7@DESKTOP-77STT21 MINGW64 /e/GitRepository/LearningGit (master)
+$ git diff Learning.md
+diff --git a/Learning.md b/Learning.md
+index 81a5c5a..0335e19 100644
+--- a/Learning.md
++++ b/Learning.md
+@@ -41,3 +41,5 @@ git status
+
+ 测试修改文件
+
++
++
+
+```
+
+在`@@ -41,3 +41,5 @@ git status`下面可以看到具体修改的内容
+
+测试版本回退：
+版本1
