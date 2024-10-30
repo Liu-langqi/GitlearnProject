@@ -120,3 +120,55 @@ git resit --hard cf5d3
 git reflog
 ```
 
+
+4. 工作区、版本库
+`.git`：版本库里面有：stage/index 暂存区、指针HEAD、分支master
+
+逻辑：
+第一步是用git add把文件添加进去，实际上就是把文件修改添加到暂存区；
+
+第二步是用git commit提交更改，实际上就是把暂存区的所有内容提交到当前分支。
+
+因为我们创建Git版本库时，Git自动为我们创建了唯一一个master分支，所以，现在，git commit就是往master分支上提交更改。
+
+你可以简单理解为，需要提交的文件修改通通放到暂存区，然后，一次性提交暂存区的所有修改。
+
+如果：工作区没有修改+暂存区为空，输入`git status`，可以得到：
+```bash
+$ git status
+On branch master
+nothing to commit, working tree clean
+```
+
+### 管理修改
+
+Git管理的是“修改”，而不是文件
+
+```bash
+# 流程：
+第一次修改文件
+git add <file>
+第二次修改文件
+git commit -m 'change file'
+
+# 上述会导致的结果
+版本回退时，只能回退到第一次修改的内容
+因为git commit -m '' 只是将第一次修改的内容提交上去
+
+为了把第二次修改的内容也提交上去
+git add 第一次修改的文件
+git add 第二次修改的文件
+git commit -m ''
+```
+
+### 撤销修改
+
+撤销工作区的修改
+
+撤销暂存区的修改
+
+撤销版本库的修改
+
+版本一
+
+版本二
