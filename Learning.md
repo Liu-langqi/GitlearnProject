@@ -163,12 +163,32 @@ git commit -m ''
 
 ### 撤销修改
 
-撤销工作区的修改
+撤销工作区的修改:
+工作区修改，未提交到暂存区
+撤销命令：`git checkout -- <file>` 或 `git restore <file>`
+工作区修改，并提交到暂存区
+```bash
+# --staged 将暂存区的文件从暂存区撤出，但不会更改文件
+git restore --staged <file>
+# 表示将在工作区但是不在暂存区的文件撤销更改
+git restore <file>
+```
 
-撤销暂存区的修改
+撤销暂存区的修改:
+```bash
+git restore --staged <file>
+git restore <file>
+```
 
-撤销版本库的修改
 
-版本一
+### 删除文件
 
-版本二
+2种情况：
+1. 删除工作区文件，然后删除版本库的文件
+先删除本地文件
+git status
+git rm <file>
+git commit -m "rm xxxfile"
+
+2. 误删工作区文件，需要恢复
+git checkout -- <file>
